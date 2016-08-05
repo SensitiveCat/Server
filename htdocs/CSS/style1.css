@@ -1,0 +1,424 @@
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+font-face{
+	font-family:"Hanna";
+	font-weight: bold;
+	src:url('/fonts/Hanna.eot');
+	src:url('/fonts/Hanna.eot?#iefix') format('embedded-opentype'),
+	url('/fonts/Hanna.woff') format('woff'),
+	url('/fonts/Hanna.ttf') format('truetype');
+	src:local(※), url('/fonts/Hanna.woff') format('woff');
+}
+/* clearfix */
+.clearfix:before, .clearfix:after{
+	content:"";, display: table;
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+	*zoom:1;
+}
+
+/* Basic Styles */
+body{
+	margin: 0;
+	background-color: lightblue;
+	font-size:100%;
+}
+nav.clearfix{
+	border-radius: 10px;
+	height: 40px;
+	width: 100%;
+	background: #455868;
+	font-size: 15pt;
+	font-family: 'Hanna', Arial, Sans-serif;
+	position: relative;
+	border-bottom: 2px solid #283744;
+}
+nav.clearfix ul{
+	padding: 0;
+	margin: 0 auto;
+	width: 600px;
+	height: 40px;
+}
+nav.clearfix li{
+	display: inline;
+	float: left;
+}
+nav.clearfix a{
+	color: #fff;
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+	line-height: 40px;
+	text-shadow: 1px 1px 0px #283744;
+}
+nav.clearfix li a{
+	border-right: 1px solid #576979;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+nav.clearfix li:last-child a{
+	border-right: 0;
+    }
+nav.clearfix a:hover, nav.clearfix a:active{
+	background-color: #8c99a4;
+}
+nav.clearfix a#pull{
+	display: none;
+}
+.maintitle{
+	margin-bottom: 10px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 10px;
+}
+.rateimgs {
+	border-radius: 10px;
+	display: inline-block;
+	width:auto !important;
+	max-width: 50%;
+	height: auto !important;
+}
+#title {
+	border-radius: 10px;
+	display: inline-block;
+	width:auto !important;
+	max-width: 60%;
+	height: auto !important;
+}
+#noticeimg {
+	border-radius: 10px;
+	padding: 20px;
+	display: inline-block;
+	width:auto !important;
+	max-width: 70%;
+	height: auto !important;
+}
+#maincon, #thumbnail{ /* 반응형 이미지 */
+	border-radius: 10px;
+	display: inline-block;
+	width:auto !important;
+	max-width: 100%;
+	height: auto !important;
+}
+#logo{
+	width: 200px;
+}
+.text-center {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-family: "Hanna", Arial, Sans-serif;
+}
+.text-left {
+	margin-top: 20px;
+	margin-bottom: 30px;
+	font-family: "Hanna", Arial, Sans-serif;
+}
+#footer{
+	padding-top: 10%;
+	width: 100%;
+}
+label {
+	font-size: 30pt;
+	font-family: "Hanna", Arial, Sans-serif;
+}
+#joinheader {
+	padding-top: 20px;
+	font-size: 50pt;
+	font-family: "Hanna", Arial, Sans-serif;
+	text-align: center;
+}
+.welcome {
+	font-size: 30pt;
+	font-family: "Hanna", Arial, Sans-serif;
+	text-align: center;
+}
+#mod, #logout {
+	margin-top: 10px;
+	font-size: 1em;
+}
+.mainindex {
+	padding-bottom: 30px;
+	padding-top: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.noticetable{
+	background-color: white;
+	width: 100%;
+}
+.noticetable td {
+	padding: 13px;
+	text-align: center;
+	border-top: 2px solid black;
+	font-family: "Hanna", Arial, Sans-serif;
+}
+#thead #tbody{
+	height: 40px;
+	text-align: center;
+}
+.noticeheader {
+	text-align: center;
+	border-top: 5px solid white;
+	font-family: "Hanna", Arial, Sans-serif;
+}
+#noticelink {
+	text-decoration: none;
+}
+ #noticelink:link {
+	color: black;
+}
+#noticelink:visited {
+	color : black;
+}
+#noticelink:hover {
+	color : blue;
+}
+#noticelink:active {
+	color: black;
+}
+#noticelink {
+	text-decoration: none;
+}
+#viewesti:link {
+	color: white;
+}
+#viewesti:visited {
+	color : white;
+}
+#viewesti:hover {
+	color : white;
+}
+#viewesti:active {
+	color: white;
+}
+.professortable{
+	width: 100%;
+}
+.professortable td {
+	padding: 10px;
+	text-align: center;
+	font-family: "Hanna", Arial, Sans-serif;
+}
+.professortable tr {
+	background-color: white;
+	border-radius: 10px;
+}
+.professortable .tl {
+	border-top-left-radius: 10px;
+}
+.professortable .bl {
+	border-bottom-left-radius: 10px;
+}
+.professortable .tr {
+	border-top-right-radius: 10px;
+}
+.professortable .br {
+	border-bottom-right-radius: 10px;
+}
+.professortable2 td {
+	padding: 10px;
+	text-align: center;
+	font-family: "Hanna", Arial, Sans-serif;
+}
+.professortable2 tr {
+	background-color: white;
+	border-radius: 10px;
+}
+.professortable2 .tl {
+	border-top-left-radius: 10px;
+}
+.professortable2 .bl {
+	border-bottom-left-radius: 10px;
+}
+.professortable2 .tr {
+	border-top-right-radius: 10px;
+}
+.professortable2 .br {
+	border-bottom-right-radius: 10px;
+}
+.proheader th {
+	font-family: "Hanna", Arial, Sans-serif;
+}
+.commenttable {
+	width: 100%;
+	font-size: 15px;
+}
+.commenttable td {
+	text-align: center;
+	font-family: "Hanna", Arial, Sans-serif;
+}
+.commenttable tr {
+	background-color: white;
+	border-radius: 10px;
+	margin: 10px;
+}
+.commenttable .comment {
+	text-align: left;
+	padding: 10px;
+}
+.commenttable .nick {
+	padding-left: 5px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.commenttable .created {
+	border-top-right-radius: 10px;
+}
+.commenttable .like {
+	border-bottom-right-radius: 10px;
+}
+.commenttable .comdel {
+	border-bottom-right-radius: 10px;
+}
+.commenttable .likebtn {
+	padding: 5px;
+	margin: 2px;
+}
+.commenttable .delbtn {
+	padding: 5px;
+	margin: 2px;
+}
+#rating {
+	border-radius: 30px;
+	display: inline-block;
+	width:auto !important;
+	max-width: 40%;
+	height: auto !important;
+}
+#rateimg {
+	display: inline-block;
+	width:auto !important;
+	max-width: 70%;
+	height: auto !important;
+}
+#progress {
+	font-size: 20px;
+}
+.pagetable {
+	width: 100px;
+	margin: auto;
+	text-align: center;
+}
+.pagetable td {
+	padding: 10px;
+}
+.userinfo {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/*Styles for screen 600px and lower*/
+@media only screen and (max-width : 600px) {
+	nav.clearfix {
+		border-radius: 10px;
+		border-bottom: 0;
+		height: auto;
+	}
+	nav.clearfix ul {
+		border-radius: 10px;
+		display: none;
+		height: auto;
+		width: 100%;
+	}
+	nav.clearfix a {
+			border-radius: 10px;
+	  	text-align: left;
+	  	width: 100%;
+	  	text-indent: 25px;
+  	}
+	nav.clearfix a#pull {
+		border-bottom-left-radius: : 10px;
+		border-bottom-right-radius: : 10px;
+		display: block;
+		background-color: #283744;
+		width: 100%;
+		position: relative;
+	}
+	nav.clearfix a#pull:after {
+		content:"";
+		background: url('nav-icon.png') no-repeat;
+		width: 30px;
+		height: 30px;
+		display: inline-block;
+		position: absolute;
+		right: 15px;
+		top: 10px;
+	}
+	nav.clearfix li {
+		display: block;
+		float: none;
+		width: 100%;
+	}
+	nav.clearfix li a {
+		border-bottom: 1px solid #576979;
+		width:100%;
+	}
+}
+
+@media (max-width:360px){.noticetable td{font-size:13px;}}
+@media (min-width:361px) and (max-width:399px){.noticetable td{font-size:14px;}}
+@media (min-width:400px) and (max-width:439px){.noticetable td{font-size:15px;}}
+@media (min-width:440px) and (max-width:479px){.noticetable td{font-size:16px;}}
+@media (min-width:480px) and (max-width:519px){.noticetable td{font-size:17px;}}
+@media (min-width:520px) and (max-width:559px){.noticetable td{font-size:18px;}}
+@media (min-width:560px) and (max-width:599px){.noticetable td{font-size:19px;}}
+@media (min-width:600px) and (max-width:639px){.noticetable td{font-size:20px;}}
+@media (min-width:640px) and (max-width:679px){.noticetable td{font-size:21px;}}
+@media (min-width:680px) and (max-width:719px){.noticetable td{font-size:22px;}}
+@media (min-width:720px) and (max-width:759px){.noticetable td{font-size:23px;}}
+@media (min-width:760px) and (max-width:799px){.noticetable td{font-size:24px;}}
+@media (min-width:800px) and (max-width:839px){.noticetable td{font-size:25px;}}
+@media (min-width:840px) and (max-width:879px){.noticetable td{font-size:26px;}}
+@media (min-width:880px){.noticetable td{font-size:34px;}}
+
+@media (max-width:360px){.professortable td{font-size:10px;}}
+@media (min-width:361px) and (max-width:399px){.professortable td {font-size:11px;}}
+@media (min-width:400px) and (max-width:439px){.professortable td {font-size:12px;}}
+@media (min-width:440px) and (max-width:479px){.professortable td {font-size:13px;}}
+@media (min-width:480px) and (max-width:519px){.professortable td {font-size:14px;}}
+@media (min-width:520px) and (max-width:559px){.professortable td {font-size:15px;}}
+@media (min-width:560px) and (max-width:599px){.professortable td {font-size:16px;}}
+@media (min-width:600px) and (max-width:639px){.professortable td {font-size:17px;}}
+@media (min-width:640px) and (max-width:679px){.professortable td {font-size:18px;}}
+@media (min-width:680px) and (max-width:719px){.professortable td {font-size:19px;}}
+@media (min-width:720px) and (max-width:759px){.professortable td {font-size:20px;}}
+@media (min-width:760px) and (max-width:799px){.professortable td {font-size:21px;}}
+@media (min-width:800px) and (max-width:839px){.professortable td {font-size:22px;}}
+@media (min-width:840px) and (max-width:879px){.professortable td {font-size:23px;}}
+@media (min-width:880px){.professortable td {font-size:34px;}}
+
+@media (max-width:360px){.professortable2 td{font-size:13px;}}
+@media (min-width:361px) and (max-width:399px){.professortable2 td {font-size:14px;}}
+@media (min-width:400px) and (max-width:439px){.professortable2 td {font-size:15px;}}
+@media (min-width:440px) and (max-width:479px){.professortable2 td {font-size:15px;}}
+@media (min-width:480px) and (max-width:519px){.professortable2 td {font-size:16px;}}
+@media (min-width:520px) and (max-width:559px){.professortable2 td {font-size:16px;}}
+@media (min-width:560px) and (max-width:599px){.professortable2 td {font-size:17px;}}
+@media (min-width:600px) and (max-width:639px){.professortable2 td {font-size:17px;}}
+@media (min-width:640px) and (max-width:679px){.professortable2 td {font-size:18px;}}
+@media (min-width:680px) and (max-width:719px){.professortable2 td {font-size:18px;}}
+@media (min-width:720px) and (max-width:759px){.professortable2 td {font-size:20px;}}
+@media (min-width:760px) and (max-width:799px){.professortable2 td {font-size:21px;}}
+@media (min-width:800px) and (max-width:839px){.professortable2 td {font-size:22px;}}
+@media (min-width:840px) and (max-width:879px){.professortable2 td {font-size:23px;}}
+@media (min-width:880px){.professortable2 td {font-size:34px;}}
+
+@media (max-width:360px){.commenttable {font-size:15px;}}
+@media (min-width:361px) and (max-width:399px){.commenttable {font-size:16px;}}
+@media (min-width:400px) and (max-width:439px){.commenttable {font-size:17px;}}
+@media (min-width:440px) and (max-width:479px){.commenttable {font-size:18px;}}
+@media (min-width:480px) and (max-width:519px){.commenttable {font-size:19px;}}
+@media (min-width:520px) and (max-width:559px){.commenttable {font-size:20px;}}
+@media (min-width:560px) and (max-width:599px){.commenttable {font-size:21px;}}
+@media (min-width:600px) and (max-width:639px){.commenttable {font-size:22px;}}
+@media (min-width:640px) and (max-width:679px){.commenttable {font-size:23px;}}
+@media (min-width:680px) and (max-width:719px){.commenttable {font-size:24px;}}
+@media (min-width:720px) and (max-width:759px){.commenttable {font-size:25px;}}
+@media (min-width:760px) and (max-width:799px){.commenttable {font-size:26px;}}
+@media (min-width:800px) and (max-width:839px){.commenttable {font-size:27px;}}
+@media (min-width:840px) and (max-width:879px){.commenttable {font-size:28px;}}
+@media (min-width:880px){.commenttable {font-size:34px;}}
