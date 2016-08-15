@@ -27,7 +27,7 @@ body{
 }
 nav.clearfix{
 	border-radius: 10px;
-	height: 40px;
+	height: 81px;
 	width: 100%;
 	background: #455868;
 	font-size: 15pt;
@@ -69,6 +69,8 @@ nav.clearfix a:hover, nav.clearfix a:active{
 nav.clearfix a#pull{
 	display: none;
 }
+
+
 .maintitle{
 	margin-bottom: 10px;
 	padding: 5px;
@@ -102,6 +104,14 @@ nav.clearfix a#pull{
 	display: inline-block;
 	width:auto !important;
 	max-width: 100%;
+	height: auto !important;
+}
+.classimg {
+	border-radius: 10px;
+	padding: 20px;
+	display: inline-block;
+	width:auto !important;
+	max-width: 70%;
 	height: auto !important;
 }
 #logo{

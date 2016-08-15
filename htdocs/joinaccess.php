@@ -7,6 +7,25 @@ $nickname = mysqli_real_escape_string($conn, $_POST['nickname']);
 $pwd1 = mysqli_real_escape_string($conn, $_POST['pwd1']);
 $pwd2 = mysqli_real_escape_string($conn, $_POST['pwd2']);
 
+$check_email = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+if($check_email==true)
+{
+
+}
+else
+{
+  echo "<script>alert(\"올바른 이메일 형식이 아닙니다.\");
+  history.back();
+</script>";
+}
+
+if($pwd1 == null) {
+  echo "<script>alert(\"올바른 비밀번호 형식이 아닙니다.\");
+  history.back();
+</script>";
+}
+
 $sql = "SELECT COUNT(email) as cnt FROM userlist WHERE email='$email'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
