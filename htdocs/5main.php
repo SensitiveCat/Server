@@ -22,6 +22,7 @@ require('./code/userinfo.php');
       <div class="text-center jumbotron">
         <a class="btn btn-default btn-lg btn-block" href="/management/1ma">경영학트랙</a>
         <a class="btn btn-default btn-lg btn-block" href="/management/2gloma">글로벌경영학트랙</a>
+        <a class="btn btn-default btn-lg btn-block" href="/management/3mathinfo">수학금융정보학과</a>
       </div>
       <br><br><br>
       <p id="footer">

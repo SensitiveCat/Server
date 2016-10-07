@@ -245,7 +245,7 @@ else {
         <div class="jumbotron">
           <h2 class="text-center">BEST COMMENT</h2>
           <?php
-          $sql = 'SELECT * FROM softcomment ORDER BY liked DESC, created DESC LIMIT 3';
+          $sql = "SELECT * FROM softcomment WHERE proid='.$id' ORDER BY liked DESC, created DESC LIMIT 3";
           $result = mysqli_query($conn, $sql);
           if($result->num_rows >= 1) {
             while($row = mysqli_fetch_assoc($result)) {
@@ -290,14 +290,14 @@ else {
                 }
                 else {
                     if(isset($_SESSION['id'])){?>
-                          <form class="" action="2softlikeProcess.php" method="post">
+                          <form class="" action="1softlikeProcess.php" method="post">
                           <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
                           <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
                           <input type="hidden" name="id" value="<?php echo $row['id']?>">
                           <input type="submit" name="name" value="Like : <?php echo $row['liked']?>" class="likebtn btn-primary" style="border-radius: 30px;border:0px solid black;">
                         </form><td class="comdel"><?php
                         if($_SESSION['id'] == $row['nick']) {?>
-                          <form class="" action="2softcommentdelete.php" method="post">
+                          <form class="" action="1softcommentdelete.php" method="post">
                           <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
                           <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
                           <input type="hidden" name="id" value="<?php echo $row['id']?>">
@@ -368,23 +368,23 @@ else {
             $paging = '<div><table class="pagetable"><tr>';
 
             if($page != 1) {
-              $paging .= '<td class="page page_start"><a class="text-center btn btn-default" href="./2softview?id='.$id.'&page=1">처음</a></td>';
+              $paging .= '<td class="page page_start"><a class="text-center btn btn-default" href="./1softview?id='.$id.'&page=1">처음</a></td>';
             }
             if($currentSection != 1) {
-              $paging .='<td class="page page_prev"><a class="text-center btn btn-primary" href="./2softview?id='.$id.'&page='.$prevPage.'">이전</a></td>';
+              $paging .='<td class="page page_prev"><a class="text-center btn btn-primary" href="./1softview?id='.$id.'&page='.$prevPage.'">이전</a></td>';
             }
 
             for($i = $firstPage; $i <= $lastPage; $i++) {
               if($i == $page) {
-                $paging .='<td class="page current"><a class="text-center btn btn-info" href="./2softview?id='.$id.'page='.$i.'">'.$i.'</a></td>';
+                $paging .='<td class="page current"><a class="text-center btn btn-info" href="./1softview?id='.$id.'page='.$i.'">'.$i.'</a></td>';
               }
               else {
-                $paging .='<td class="page"><a class="text-center btn btn-primary" href="./2softview?id='.$id.'&page='.$i.'">'.$i.'</a></td>';
+                $paging .='<td class="page"><a class="text-center btn btn-primary" href="./1softview?id='.$id.'&page='.$i.'">'.$i.'</a></td>';
               }
             }
 
             if($page != $allPage) {
-              $paging .='<td class="page page_end"><a class="text-center btn btn-default" href="./2softview?id='.$id.'&page='.$allPage.'">끝</a></td>';
+              $paging .='<td class="page page_end"><a class="text-center btn btn-default" href="./1softview?id='.$id.'&page='.$allPage.'">끝</a></td>';
             }
             $paging .='</tr></table></div>';
 
@@ -445,19 +445,24 @@ else {
                   }
                   else {
                       if(isset($_SESSION['id'])){?>
-                            <form class="" action="2softlikeProcess.php" method="post">
+                            <form class="" action="1softlikeProcess.php" method="post">
                             <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
                             <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
                             <input type="hidden" name="id" value="<?php echo $row['id']?>">
                             <input type="submit" name="name" value="Like : <?php echo $row['liked']?>" class="likebtn btn-primary" style="border-radius: 30px;border:0px solid black;">
                           </form><td class="comdel"><?php
                           if($_SESSION['id'] == $row['nick']) {?>
-                            <form class="" action="2softcommentdelete.php" method="post">
+                            <form class="" action="1softcommentdelete.php" method="post">
                             <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
                             <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
                             <input type="hidden" name="id" value="<?php echo $row['id']?>">
                             <input type="submit" name="name" value="댓글삭제" class="delbtn btn-danger" style="font-size:0.9em;border-radius: 30px;border:0px solid black;">
-                            </form></td><?php
+                            </form><form class="" action="1softcommentupdate.php?page=<?php echo $page?>&id=<?php echo $id ?>" method="post">
+                              <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
+                              <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
+                              <input type="hidden" name="id" value="<?php echo $row['id']?>">
+                              <input type="submit" name="name" value="댓글수정" class="text-center delbtn btn-info" style="font-size:15px;border-radius: 30px;border:0px solid black;">
+                              </form></td><?php
                           }
                       }
                     }
@@ -488,7 +493,7 @@ else {
             }
             else {
               ?>
-            <form class="" action="2softcommentprocess?id=<?php echo $id?>" method="post">
+            <form class="" action="1softcommentprocess?id=<?php echo $id?>" method="post">
               <h1 class="text-left">강의 수준</h1>
               <select name="level" class="form-control text-center" style="height: 50px;">
                <option class="text-center" value = "">선택</option>
@@ -598,7 +603,7 @@ else {
         }
         ?>
         </div>
-        <button onclick="location.href='../socsci/2soft'" class="btn btn-default btn-lg btn-block text-center">목록으로 돌아가기</button>
+        <button onclick="location.href='../IT/1soft'" class="btn btn-default btn-lg btn-block text-center">목록으로 돌아가기</button>
       <p id="footer">
       ⓒ Copyright all rights received SensitiveCat <br> E-mail: eoen012@gmail.com
       </p>

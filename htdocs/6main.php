@@ -24,7 +24,6 @@ require('./code/userinfo.php');
         <a class="btn btn-default btn-lg btn-block" href="/IT/2cpsc">컴퓨터공학과</a>
         <a class="btn btn-default btn-lg btn-block" href="/IT/3elec">전자공학과</a>
         <a class="btn btn-default btn-lg btn-block" href="/IT/4energy">에너지IT학과</a>
-        <a class="btn btn-default btn-lg btn-block" href="/IT/5mathinfo">수학금융정보학과</a>
       </div>
       <br><br><br>
       <p id="footer">

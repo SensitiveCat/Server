@@ -19,11 +19,11 @@
   $score = $_POST['star'];
   $comment = nl2br($_POST['comment']);
 
-  $sql = "INSERT INTO policecomment (proid, nick, score, comment) VALUES ('".$proid."','".$nick."','".$score."','".$comment."')";
+  $sql = "INSERT INTO buildcomment (proid, nick, score, comment) VALUES ('".$proid."','".$nick."','".$score."','".$comment."')";
   $result = mysqli_query($conn, $sql);
-  $replaceURL = './2policeview?id=' . $proid;
+  $replaceURL = './4buildview?id=' . $proid;
 
-  $sql = "INSERT INTO policeestimate (level, mood, qual, quan, reportlv, testlv, scorelv, book, insung, proid)
+  $sql = "INSERT INTO buildestimate (level, mood, qual, quan, reportlv, testlv, scorelv, book, insung, proid)
   VALUES ('".$level."','".$mood."','".$qual."','".$quan."','".$reportlv."','".$testlv."','".$scorelv."','".$book."','".$insung."','".$proid."')";
   $result = mysqli_query($conn, $sql);
 ?>

@@ -245,7 +245,7 @@ else {
         <div class="jumbotron">
           <h2 class="text-center">BEST COMMENT</h2>
           <?php
-          $sql = 'SELECT * FROM cpsccomment ORDER BY liked DESC, created DESC LIMIT 3';
+          $sql = "SELECT * FROM cpsccomment WHERE proid='.$id' ORDER BY liked DESC, created DESC LIMIT 3";
           $result = mysqli_query($conn, $sql);
           if($result->num_rows >= 1) {
             while($row = mysqli_fetch_assoc($result)) {
@@ -449,14 +449,19 @@ else {
                             <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
                             <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
                             <input type="hidden" name="id" value="<?php echo $row['id']?>">
-                            <input type="submit" name="name" value="Like : <?php echo $row['liked']?>" class="likebtn btn-primary" style="border-radius: 30px;border:0px solid black;">
+                            <input type="submit" name="name" value="Like : <?php echo $row['liked']?>" class="text-center likebtn btn-primary" style="font-size:15px;border-radius: 30px;border:0px solid black;">
                           </form><td class="comdel"><?php
                           if($_SESSION['id'] == $row['nick']) {?>
                             <form class="" action="2cpsccommentdelete.php" method="post">
                             <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
                             <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
                             <input type="hidden" name="id" value="<?php echo $row['id']?>">
-                            <input type="submit" name="name" value="댓글삭제" class="delbtn btn-danger" style="font-size:0.9em;border-radius: 30px;border:0px solid black;">
+                            <input type="submit" name="name" value="댓글삭제" class="text-center delbtn btn-danger" style="font-size:15px;border-radius: 30px;border:0px solid black;">
+                          </form><form class="" action="2cpsccommentupdate.php?page=<?php echo $page?>&id=<?php echo $id ?>" method="post">
+                            <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
+                            <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
+                            <input type="hidden" name="id" value="<?php echo $row['id']?>">
+                            <input type="submit" name="name" value="댓글수정" class="text-center delbtn btn-info" style="font-size:15px;border-radius: 30px;border:0px solid black;">
                             </form></td><?php
                           }
                       }

@@ -10,7 +10,16 @@ if(isset($_GET['page'])) {
   $page = 1;
 }
 
-$sql = 'SELECT count(*) as cnt FROM visual ORDER BY id DESC';
+if($_GET['squery']!='') {
+  $where = 'WHERE name="'.$_GET['squery'].'"';
+  $sql = "SELECT count(*) as cnt FROM visual '.$where.' ORDER BY id DESC";
+  $searchquery = '&amp;squery='.$_GET['squery'];
+}
+else {
+  $sql = 'SELECT count(*) as cnt FROM visual ORDER BY id DESC';
+  $where ='';
+}
+
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -70,7 +79,7 @@ $paging .='</div>';
 $currentLimit = ($onePage * $page) - $onePage;
 $sqlLimit = ' limit '. $currentLimit .', ' . $onePage;
 
-$sql = 'SELECT * FROM visual ORDER BY id'.$sqlLimit;
+$sql = 'SELECT * FROM visual '.$where.' ORDER BY id'.$sqlLimit;
 $result = mysqli_query($conn, $sql);
  ?>
 <!DOCTYPE html>
@@ -88,35 +97,39 @@ $result = mysqli_query($conn, $sql);
       ?>
    </p>
  </div><h2 class="text-center"><img class="classimg" src="../useimg/c42.png" alt="notice" /></h2>
-    <article class="contents">
+    <article class="contents">  <div class="jumbotron">
+        <table class="professortable">
+          <tr class="proheader">
       <?php
-      //  $sql = "SELECT * FROM professor";
-      //  $result = mysqli_query($conn, $sql);
           while($row = mysqli_fetch_assoc($result))
           {
       ?>
-          <div class="jumbotron">
-              <table class="professortable">
-                <tr class="proheader">
-                  <td class="tl" rowspan="2" width="25%"><img id="thumbnail" src="../useimg/thumbnail.png" alt="" width="100px" height="100px"/></td>
-                  <td width="15%">직책</td>
-                  <td width="20%">이름</td>
-                  <td width="25%">전공</td>
-                  <td width="15%" class="tr br" rowspan="2" width="15%"><a id="viewesti" href="../arts/2visualview?page=<?php echo $page ?>&id=<?php echo $row['id']?>" class="btn btn-primary">평가 보기</a></td>
+                  <td width="15%"><?php echo $row['level']?></td>
+                  <td width="30%" style="font-weight: bold;"><?php echo $row['name']?></td>
+                  <td width="25%"><?php echo $row['major']?></td>
+                  <td width="30%"><h4><a id="viewesti" href="../arts/2visualview?page=<?php echo $page ?>&id=<?php echo $row['id']?>" class="btn btn-primary">평가 보기</a>
+                    <?php
+                      $countsql = 'SELECT count(*) as cnt FROM visualestimate WHERE proid='.$row['id'];
+                      $result2 = mysqli_query($conn, $countsql);
+                      $row2 = mysqli_fetch_assoc($result2);
+                     ?> ◀ 참여 : <?php echo $row2['cnt']?> 명</h4></td>
                 </tr>
-                <tr>
-                  <td ><?php echo $row['level']?></td>
-                  <td style="font-weight: bold;"><?php echo $row['name']?></td>
-                  <td ><?php echo $row['major']?></td>
-
-                </tr>
-              </table>
-            </div>
         <?php
           }
         ?>
+        </table>
+      </div>
         <div class="paging">
-            <?php echo $paging ?>
+          <?php
+          if(!isset($_GET['squery'])) {
+            echo $paging;
+          }
+
+          ?>
+          <form class="text-center form-inline" action="2visual" method="get">
+            <input type="text" class="form-control" name="squery" size="20">
+            <input type="submit" value="검색" class="btn">
+          </form>
         </div>
       <p id="footer">
         ⓒ Copyright all rights received SensitiveCat <br> E-mail: eoen012@gmail.com

@@ -245,7 +245,7 @@ else {
         <div class="jumbotron">
           <h2 class="text-center">BEST COMMENT</h2>
           <?php
-          $sql = 'SELECT * FROM eastcomment ORDER BY liked DESC, created DESC LIMIT 3';
+          $sql = "SELECT * FROM eastcomment WHERE proid='.$id' ORDER BY liked DESC, created DESC LIMIT 3";
           $result = mysqli_query($conn, $sql);
           if($result->num_rows >= 1) {
             while($row = mysqli_fetch_assoc($result)) {
@@ -368,23 +368,23 @@ else {
             $paging = '<div><table class="pagetable"><tr>';
 
             if($page != 1) {
-              $paging .= '<td class="page page_start"><a class="text-center btn btn-default" href="./computerview?id='.$id.'&page=1">처음</a></td>';
+              $paging .= '<td class="page page_start"><a class="text-center btn btn-default" href="./3eastlangview?id='.$id.'&page=1">처음</a></td>';
             }
             if($currentSection != 1) {
-              $paging .='<td class="page page_prev"><a class="text-center btn btn-primary" href="./computerview?id='.$id.'&page='.$prevPage.'">이전</a></td>';
+              $paging .='<td class="page page_prev"><a class="text-center btn btn-primary" href="./3eastlangview?id='.$id.'&page='.$prevPage.'">이전</a></td>';
             }
 
             for($i = $firstPage; $i <= $lastPage; $i++) {
               if($i == $page) {
-                $paging .='<td class="page current"><a class="text-center btn btn-info" href="./computerview?id='.$id.'page='.$i.'">'.$i.'</a></td>';
+                $paging .='<td class="page current"><a class="text-center btn btn-info" href="./3eastlangview?id='.$id.'page='.$i.'">'.$i.'</a></td>';
               }
               else {
-                $paging .='<td class="page"><a class="text-center btn btn-primary" href="./computerview?id='.$id.'&page='.$i.'">'.$i.'</a></td>';
+                $paging .='<td class="page"><a class="text-center btn btn-primary" href="./3eastlangview?id='.$id.'&page='.$i.'">'.$i.'</a></td>';
               }
             }
 
             if($page != $allPage) {
-              $paging .='<td class="page page_end"><a class="text-center btn btn-default" href="./computerview?id='.$id.'&page='.$allPage.'">끝</a></td>';
+              $paging .='<td class="page page_end"><a class="text-center btn btn-default" href="./3eastlangview?id='.$id.'&page='.$allPage.'">끝</a></td>';
             }
             $paging .='</tr></table></div>';
 
@@ -457,7 +457,12 @@ else {
                             <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
                             <input type="hidden" name="id" value="<?php echo $row['id']?>">
                             <input type="submit" name="name" value="댓글삭제" class="delbtn btn-danger" style="font-size:0.9em;border-radius: 30px;border:0px solid black;">
-                            </form></td><?php
+                          </form><form class="" action="3eastlangcommentupdate.php?page=<?php echo $page?>&id=<?php echo $id ?>" method="post">
+                                <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
+                                <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
+                                <input type="hidden" name="id" value="<?php echo $row['id']?>">
+                                <input type="submit" name="name" value="댓글수정" class="text-center delbtn btn-info" style="font-size:15px;border-radius: 30px;border:0px solid black;">
+                                </form></td><?php
                           }
                       }
                     }

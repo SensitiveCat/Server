@@ -9,7 +9,7 @@ if(!isset($_SESSION['is_login'])){
         $welcome = '<h3 class="welcome"> 환영합니다. '.$_SESSION['id'].'님! </h3>';
     }
     $logout = '
-    <form action="modinfo.php">
+    <form action="../modinfo.php">
     <h3><input type="submit" id="mod" class="btn btn-info btn-lg btn-block" value="정보수정" /></h3>
     </form>
     <form action="signout.php">

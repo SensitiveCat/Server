@@ -12,7 +12,7 @@
   $sql = "DELETE FROM glomacomment WHERE id=$commentid";
   $result = mysqli_query($conn, $sql);
 
-  $replacadmiRL = "/7glomaview?page='".$page."'&id='".$id;
+  $replacadmiRL = "/2glomaview?page='".$page."'&id='".$id;
  ?>
  <script>
    location.replace("<?php echo $replacadmiRL?>");

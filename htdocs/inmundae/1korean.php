@@ -10,14 +10,23 @@ if(isset($_GET['page'])) {
   $page = 1;
 }
 
-$sql = 'SELECT count(*) as cnt FROM koreanpro ORDER BY id DESC';
+if($_GET['squery']!='') {
+  $where = 'WHERE name="'.$_GET['squery'].'"';
+  $sql = "SELECT count(*) as cnt FROM koreanpro '.$where.' ORDER BY id DESC";
+  $searchquery = '&amp;squery='.$_GET['squery'];
+}
+else {
+  $sql = 'SELECT count(*) as cnt FROM koreanpro ORDER BY id DESC';
+  $where ='';
+}
+
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
-$allPost = $row['cnt'];
+$allPost = $row['cnt']; // 1
 
 $onePage = 8;
-$allPage = ceil($allPost/$onePage);
+$allPage = ceil($allPost/$onePage); // 1
 
 if($page < 1 && $page > $allPage) {
 ?>
@@ -29,10 +38,10 @@ if($page < 1 && $page > $allPage) {
 		exit;
 	}
 $oneSection = 10;
-$currentSection = ceil($page / $oneSection);
-$allSection = ceil($allPage / $oneSection);
+$currentSection = ceil($page / $oneSection); // 1
+$allSection = ceil($allPage / $oneSection); // 1
 
-$firstPage = ($currentSection * $oneSection) - ($oneSection - 1);
+$firstPage = ($currentSection * $oneSection) - ($oneSection - 1); // 1
 
 if($currentSection == $allSection) {
   $lastPage = $allPage;
@@ -47,30 +56,30 @@ $nextPage = (($currentSection +1) * $oneSection) - ($oneSection - 1);
 $paging = '<div class="text-center">';
 
 if($page != 1) {
-  $paging .= '<a class="text-center btn btn-default" href="./1korean?page=1">처음</a>&nbsp;';
+  $paging .= '<a class="text-center btn btn-default" href="./1korean?page=1'.$searchquery.'">처음</a>&nbsp;';
 }
 if($currentSection != 1) {
-  $paging .='<a class="text-center btn btn-primary" href="./1korean?page='.$prevPage.'">이전</a>&nbsp;';
+  $paging .='<a class="text-center btn btn-primary" href="./1korean?page='.$prevPage.$searchquery.'">이전</a>&nbsp;';
 }
 
 for($i = $firstPage; $i <= $lastPage; $i++) {
   if($i == $page) {
-    $paging .='<a class="text-center btn btn-info" href="./1korean?page='.$i.'">'.$i.'</a>&nbsp;';
+    $paging .='<a class="text-center btn btn-info" href="./1korean?page='.$i.$searchquery.'">'.$i.'</a>&nbsp;';
   }
   else {
-    $paging .='<a class="text-center btn btn-primary" href="./1korean?page='.$i.'">'.$i.'</a>&nbsp;';
+    $paging .='<a class="text-center btn btn-primary" href="./1korean?page='.$i.$searchquery.'">'.$i.'</a>&nbsp;';
   }
 }
 
 if($page != $allPage) {
-  $paging .='<a class="text-center btn btn-default" href="./1korean?page='.$allPage.'">끝</a>&nbsp;';
+  $paging .='<a class="text-center btn btn-default" href="./1korean?page='.$allPage.$searchquery.'">끝</a>&nbsp;';
 }
 $paging .='</div>';
 
 $currentLimit = ($onePage * $page) - $onePage;
 $sqlLimit = ' limit '. $currentLimit .', ' . $onePage;
 
-$sql = 'SELECT * FROM koreanpro ORDER BY id'.$sqlLimit;
+$sql = 'SELECT * FROM koreanpro '.$where.' ORDER BY id'.$sqlLimit;
 $result = mysqli_query($conn, $sql);
  ?>
 <!DOCTYPE html>
@@ -88,35 +97,39 @@ $result = mysqli_query($conn, $sql);
       ?>
    </p>
  </div><h2 class="text-center"><img class="classimg" src="../useimg/c1.png" alt="한국어문학과" /></h2>
-    <article class="contents">
+    <article class="contents"><div class="jumbotron">
+        <table class="professortable">
+          <tr class="proheader">
       <?php
-      //  $sql = "SELECT * FROM professor";
-      //  $result = mysqli_query($conn, $sql);
           while($row = mysqli_fetch_assoc($result))
           {
       ?>
-          <div class="jumbotron">
-              <table class="professortable">
-                <tr class="proheader">
-                  <td class="tl" rowspan="2" width="25%"><img id="thumbnail" src="../useimg/thumbnail.png" alt="" width="100px" height="100px"/></td>
-                  <td width="15%">직책</td>
-                  <td width="20%">이름</td>
-                  <td width="25%">전공</td>
-                  <td width="15%" class="tr br" rowspan="2" width="15%"><a id="viewesti" href="../menu1/1koreanview?page=<?php echo $page ?>&id=<?php echo $row['id']?>" class="btn btn-primary">평가 보기</a></td>
+                  <td width="15%"><?php echo $row['level']?></td>
+                  <td width="30%" style="font-weight: bold;"><?php echo $row['name']?></td>
+                  <td width="25%"><?php echo $row['major']?></td>
+                  <td width="30%"><h4><a id="viewesti" href="../inmundae/1koreanview?page=<?php echo $page ?>&id=<?php echo $row['id']?>" class="btn btn-primary">평가 보기</a>
+                    <?php
+                      $countsql = 'SELECT count(*) as cnt FROM koreanestimate WHERE proid='.$row['id'];
+                      $result2 = mysqli_query($conn, $countsql);
+                      $row2 = mysqli_fetch_assoc($result2);
+                     ?> ◀ 참여 : <?php echo $row2['cnt']?> 명</h4></td>
                 </tr>
-                <tr>
-                  <td ><?php echo $row['level']?></td>
-                  <td style="font-weight: bold;"><?php echo $row['name']?></td>
-                  <td ><?php echo $row['major']?></td>
-
-                </tr>
-              </table>
-            </div>
         <?php
           }
         ?>
+        </table>
+      </div>
         <div class="paging">
-            <?php echo $paging ?>
+            <?php
+            if(!isset($_GET['squery'])) {
+              echo $paging;
+            }
+
+            ?>
+            <form class="text-center form-inline" action="1korean" method="get">
+              <input type="text" class="form-control" name="squery" size="20">
+              <input type="submit" value="검색" class="btn">
+            </form>
         </div>
       <p id="footer">
         ⓒ Copyright all rights received SensitiveCat <br> E-mail: eoen012@gmail.com

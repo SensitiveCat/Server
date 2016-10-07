@@ -457,7 +457,12 @@ else {
                             <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
                             <input type="hidden" name="id" value="<?php echo $row['id']?>">
                             <input type="submit" name="name" value="댓글삭제" class="delbtn btn-danger" style="font-size:0.9em;border-radius: 30px;border:0px solid black;">
-                            </form></td><?php
+                          </form><form class="" action="1citycommentupdate.php?page=<?php echo $page?>&id=<?php echo $id ?>" method="post">
+                                <input type="hidden" name="nick" value="<?php echo $_SESSION['id']?>">
+                                <input type="hidden" name="liked" value="<?php echo $row['nick']?>">
+                                <input type="hidden" name="id" value="<?php echo $row['id']?>">
+                                <input type="submit" name="name" value="댓글수정" class="text-center delbtn btn-info" style="font-size:15px;border-radius: 30px;border:0px solid black;">
+                                </form></td><?php
                           }
                       }
                     }

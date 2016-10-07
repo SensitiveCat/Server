@@ -1,12 +1,12 @@
-@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 font-face{
-	font-family:"Hanna";
+	font-family:"Jeju Gothic";
 	font-weight: bold;
-	src:url('/fonts/Hanna.eot');
-	src:url('/fonts/Hanna.eot?#iefix') format('embedded-opentype'),
-	url('/fonts/Hanna.woff') format('woff'),
-	url('/fonts/Hanna.ttf') format('truetype');
-	src:local(※), url('/fonts/Hanna.woff') format('woff');
+	src:url('/fonts/Jeju Gothic.eot');
+	src:url('/fonts/Jeju Gothic.eot?#iefix') format('embedded-opentype'),
+	url('/fonts/Jeju Gothic.woff') format('woff'),
+	url('/fonts/Jeju Gothic.ttf') format('truetype');
+	src:local(※), url('/fonts/Jeju Gothic.woff') format('woff');
 }
 /* clearfix */
 .clearfix:before, .clearfix:after{
@@ -31,14 +31,14 @@ nav.clearfix{
 	width: 100%;
 	background: #455868;
 	font-size: 15pt;
-	font-family: 'Hanna', Arial, Sans-serif;
+	font-family: 'Jeju Gothic', Arial, Sans-serif;
 	position: relative;
 	border-bottom: 2px solid #283744;
 }
 nav.clearfix ul{
 	padding: 0;
 	margin: 0 auto;
-	width: 600px;
+	width: 800px;
 	height: 40px;
 }
 nav.clearfix li{
@@ -48,11 +48,14 @@ nav.clearfix li{
 nav.clearfix a{
 	color: #fff;
 	display: inline-block;
-	width: 100px;
+	width: 110px;
 	text-align: center;
 	text-decoration: none;
 	line-height: 40px;
 	text-shadow: 1px 1px 0px #283744;
+}
+#medical {
+	width: 220px;
 }
 nav.clearfix li a{
 	border-right: 1px solid #576979;
@@ -96,10 +99,10 @@ nav.clearfix a#pull{
 	padding: 20px;
 	display: inline-block;
 	width:auto !important;
-	max-width: 70%;
+	max-width: 50%;
 	height: auto !important;
 }
-#maincon, #thumbnail{ /* 반응형 이미지 */
+#maincon, #maincon2, #thumbnail{ /* 반응형 이미지 */
 	border-radius: 10px;
 	display: inline-block;
 	width:auto !important;
@@ -120,12 +123,12 @@ nav.clearfix a#pull{
 .text-center {
 	margin-top: 20px;
 	margin-bottom: 30px;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 .text-left {
 	margin-top: 20px;
 	margin-bottom: 30px;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 #footer{
 	padding-top: 10%;
@@ -133,17 +136,17 @@ nav.clearfix a#pull{
 }
 label {
 	font-size: 30pt;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 #joinheader {
 	padding-top: 20px;
 	font-size: 50pt;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 	text-align: center;
 }
 .welcome {
 	font-size: 30pt;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 	text-align: center;
 }
 #mod, #logout {
@@ -164,7 +167,7 @@ label {
 	padding: 13px;
 	text-align: center;
 	border-top: 2px solid black;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 #thead #tbody{
 	height: 40px;
@@ -173,7 +176,7 @@ label {
 .noticeheader {
 	text-align: center;
 	border-top: 5px solid white;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 #noticelink {
 	text-decoration: none;
@@ -208,12 +211,14 @@ label {
 .professortable{
 	width: 100%;
 }
+
 .professortable td {
 	padding: 10px;
 	text-align: center;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 .professortable tr {
+	border-top: 2px solid black;
 	background-color: white;
 	border-radius: 10px;
 }
@@ -232,7 +237,7 @@ label {
 .professortable2 td {
 	padding: 10px;
 	text-align: center;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 .professortable2 tr {
 	background-color: white;
@@ -251,7 +256,7 @@ label {
 	border-bottom-right-radius: 10px;
 }
 .proheader th {
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 .commenttable {
 	width: 100%;
@@ -259,7 +264,7 @@ label {
 }
 .commenttable td {
 	text-align: center;
-	font-family: "Hanna", Arial, Sans-serif;
+	font-family: "Jeju Gothic", Arial, Sans-serif;
 }
 .commenttable tr {
 	background-color: white;
@@ -291,6 +296,35 @@ label {
 .commenttable .delbtn {
 	padding: 5px;
 	margin: 2px;
+}
+.medicaltable {
+	width: 100%;
+}
+.medicaltable h2 {
+	background-color: #6EB4D5;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px;
+}
+.medicaltable tr {
+	margin: 10px;
+	background-color: white;
+	border-radius: 10px;
+}
+.medicaltable td {
+	padding : 10px;
+}
+.medicaltable .tl {
+	border-top-left-radius: 10px;
+}
+.medicaltable .bl {
+	border-bottom-left-radius: 10px;
+}
+.medicaltable .tr {
+	border-top-right-radius: 10px;
+}
+.medicaltable .br {
+	border-bottom-right-radius: 10px;
 }
 #rating {
 	border-radius: 30px;
@@ -369,21 +403,21 @@ label {
 	}
 }
 
-@media (max-width:360px){.noticetable td{font-size:13px;}}
-@media (min-width:361px) and (max-width:399px){.noticetable td{font-size:14px;}}
-@media (min-width:400px) and (max-width:439px){.noticetable td{font-size:15px;}}
-@media (min-width:440px) and (max-width:479px){.noticetable td{font-size:16px;}}
-@media (min-width:480px) and (max-width:519px){.noticetable td{font-size:17px;}}
-@media (min-width:520px) and (max-width:559px){.noticetable td{font-size:18px;}}
-@media (min-width:560px) and (max-width:599px){.noticetable td{font-size:19px;}}
-@media (min-width:600px) and (max-width:639px){.noticetable td{font-size:20px;}}
-@media (min-width:640px) and (max-width:679px){.noticetable td{font-size:21px;}}
-@media (min-width:680px) and (max-width:719px){.noticetable td{font-size:22px;}}
-@media (min-width:720px) and (max-width:759px){.noticetable td{font-size:23px;}}
-@media (min-width:760px) and (max-width:799px){.noticetable td{font-size:24px;}}
-@media (min-width:800px) and (max-width:839px){.noticetable td{font-size:25px;}}
-@media (min-width:840px) and (max-width:879px){.noticetable td{font-size:26px;}}
-@media (min-width:880px){.noticetable td{font-size:34px;}}
+@media (max-width:360px){.noticetable td{font-size:10px;}}
+@media (min-width:361px) and (max-width:399px){.noticetable td{font-size:11px;}}
+@media (min-width:400px) and (max-width:439px){.noticetable td{font-size:12px;}}
+@media (min-width:440px) and (max-width:479px){.noticetable td{font-size:13px;}}
+@media (min-width:480px) and (max-width:519px){.noticetable td{font-size:14px;}}
+@media (min-width:520px) and (max-width:559px){.noticetable td{font-size:15px;}}
+@media (min-width:560px) and (max-width:599px){.noticetable td{font-size:16px;}}
+@media (min-width:600px) and (max-width:639px){.noticetable td{font-size:17px;}}
+@media (min-width:640px) and (max-width:679px){.noticetable td{font-size:18px;}}
+@media (min-width:680px) and (max-width:719px){.noticetable td{font-size:19px;}}
+@media (min-width:720px) and (max-width:759px){.noticetable td{font-size:20px;}}
+@media (min-width:760px) and (max-width:799px){.noticetable td{font-size:21px;}}
+@media (min-width:800px) and (max-width:839px){.noticetable td{font-size:22px;}}
+@media (min-width:840px) and (max-width:879px){.noticetable td{font-size:23px;}}
+@media (min-width:880px){.noticetable td{font-size:24px;}}
 
 @media (max-width:360px){.professortable td{font-size:10px;}}
 @media (min-width:361px) and (max-width:399px){.professortable td {font-size:11px;}}
@@ -399,7 +433,7 @@ label {
 @media (min-width:760px) and (max-width:799px){.professortable td {font-size:21px;}}
 @media (min-width:800px) and (max-width:839px){.professortable td {font-size:22px;}}
 @media (min-width:840px) and (max-width:879px){.professortable td {font-size:23px;}}
-@media (min-width:880px){.professortable td {font-size:34px;}}
+@media (min-width:880px){.professortable td {font-size:24px;}}
 
 @media (max-width:360px){.professortable2 td{font-size:13px;}}
 @media (min-width:361px) and (max-width:399px){.professortable2 td {font-size:14px;}}
@@ -415,7 +449,7 @@ label {
 @media (min-width:760px) and (max-width:799px){.professortable2 td {font-size:21px;}}
 @media (min-width:800px) and (max-width:839px){.professortable2 td {font-size:22px;}}
 @media (min-width:840px) and (max-width:879px){.professortable2 td {font-size:23px;}}
-@media (min-width:880px){.professortable2 td {font-size:34px;}}
+@media (min-width:880px){.professortable2 td {font-size:24px;}}
 
 @media (max-width:360px){.commenttable {font-size:15px;}}
 @media (min-width:361px) and (max-width:399px){.commenttable {font-size:16px;}}
@@ -431,4 +465,4 @@ label {
 @media (min-width:760px) and (max-width:799px){.commenttable {font-size:26px;}}
 @media (min-width:800px) and (max-width:839px){.commenttable {font-size:27px;}}
 @media (min-width:840px) and (max-width:879px){.commenttable {font-size:28px;}}
-@media (min-width:880px){.commenttable {font-size:34px;}}
+@media (min-width:880px){.commenttable {font-size:24px;}}

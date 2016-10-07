@@ -1,6 +1,6 @@
 <?php
 require("/config/config2.php");// DB설정
-require("lib/db.php"); // DB 실행 내용 저장 파일
+require("/lib/db.php"); // DB 실행 내용 저장 파일
 $conn = db_init($config2["host"], $config2["duser"], $config2["dpw"], $config2["dname"]);
 require('./code/userinfo.php');
  ?>
@@ -27,8 +27,8 @@ require('./code/userinfo.php');
         <table class="noticetable">
           <tr id="thead">
             <td width="10%">번호</td>
-            <td width="40%">제목</td>
-            <td width="10%">작성자</td>
+            <td width="45%">제목</td>
+            <td width="15%">작성자</td>
             <td width="20%">작성일</td>
             <td width="10%">조회수</td>
           </tr>

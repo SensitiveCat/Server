@@ -19,7 +19,9 @@ require('./code/userinfo.php');
    </p>
  </div>
     <article class="contents">
-        <img id="maincon" src="/useimg/maincontents.png" alt="contents" /><br><br><br>
+        <img id="maincon" src="/useimg/maincontents.png" alt="contents" /><br><br>
+        <img id="maincon2" src="/useimg/maincontents2.png" alt="contents" />
+        <br><br><br>
       <p id="footer">
         ⓒ Copyright all rights received SensitiveCat <br> E-mail: eoen012@gmail.com
       </p>

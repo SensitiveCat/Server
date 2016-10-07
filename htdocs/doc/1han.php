@@ -10,7 +10,16 @@ if(isset($_GET['page'])) {
   $page = 1;
 }
 
-$sql = 'S1hanT count(*) as cnt FROM 1han ORDER BY id DESC';
+if($_GET['squery']!='') {
+  $where = 'WHERE name="'.$_GET['squery'].'"';
+  $sql = "SELECT count(*) as cnt FROM 1han '.$where.' ORDER BY id DESC";
+  $searchquery = '&amp;squery='.$_GET['squery'];
+}
+else {
+  $sql = 'SELECT count(*) as cnt FROM 1han ORDER BY id DESC';
+  $where ='';
+}
+
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
@@ -70,7 +79,7 @@ $paging .='</div>';
 $currentLimit = ($onePage * $page) - $onePage;
 $sqlLimit = ' limit '. $currentLimit .', ' . $onePage;
 
-$sql = 'S1hanT * FROM 1han ORDER BY id'.$sqlLimit;
+$sql = 'SELECT * FROM 1han '.$where.' ORDER BY id'.$sqlLimit;
 $result = mysqli_query($conn, $sql);
  ?>
 <!DOCTYPE html>
@@ -102,7 +111,14 @@ $result = mysqli_query($conn, $sql);
                   <td width="15%">직책</td>
                   <td width="20%">이름</td>
                   <td width="25%">전공</td>
-                  <td width="15%" class="tr br" rowspan="2" width="15%"><a id="viewesti" href="../doc/1hanview?page=<?php echo $page ?>&id=<?php echo $row['id']?>" class="btn btn-primary">평가 보기</a></td>
+                  <td width="15%" class="tr br" rowspan="2" width="15%"><a id="viewesti" href="../doc/1hanview?page=<?php echo $page ?>&id=<?php echo $row['id']?>" class="btn btn-primary">평가 보기</a>
+                    <?php
+                      $countsql = 'SELECT count(*) as cnt FROM 1hanestimate WHERE proid='.$row['id'];
+                      $result2 = mysqli_query($conn, $countsql);
+                      $row2 = mysqli_fetch_assoc($result2);
+
+
+                     ?><h4>평가참여 <br><br><?php echo $row2['cnt']?> 명</h4></td>
                 </tr>
                 <tr>
                   <td ><?php echo $row['level']?></td>
@@ -116,7 +132,16 @@ $result = mysqli_query($conn, $sql);
           }
         ?>
         <div class="paging">
-            <?php echo $paging ?>
+          <?php
+          if(!isset($_GET['squery'])) {
+            echo $paging;
+          }
+        ?>
+        <form class="text-center form-inline" action="1han" method="get">
+          <input type="text" class="form-control" name="squery" size="20">
+          <input type="submit" value="검색" class="btn">
+        </form>
+
         </div>
       <p id="footer">
         ⓒ Copyright all rights received SensitiveCat <br> E-mail: eoen012@gmail.com

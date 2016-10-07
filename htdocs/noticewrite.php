@@ -1,6 +1,6 @@
 <?php
 require("/config/config2.php");// DB설정
-require("lib/db.php"); // DB 실행 내용 저장 파일
+require("/lib/db.php"); // DB 실행 내용 저장 파일
 $conn = db_init($config2["host"], $config2["duser"], $config2["dpw"], $config2["dname"]);
 
 if(isset($_GET['id'])) {

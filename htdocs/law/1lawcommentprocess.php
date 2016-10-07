@@ -21,7 +21,7 @@
 
   $sql = "INSERT INTO lawcomment (proid, nick, score, comment) VALUES ('".$proid."','".$nick."','".$score."','".$comment."')";
   $result = mysqli_query($conn, $sql);
-  $replaceURL = './1koreanview?id=' . $proid;
+  $replaceURL = './1lawview?id=' . $proid;
 
   $sql = "INSERT INTO lawestimate (level, mood, qual, quan, reportlv, testlv, scorelv, book, insung, proid)
   VALUES ('".$level."','".$mood."','".$qual."','".$quan."','".$reportlv."','".$testlv."','".$scorelv."','".$book."','".$insung."','".$proid."')";

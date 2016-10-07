@@ -21,7 +21,7 @@
 
   $sql = "INSERT INTO eucomment (proid, nick, score, comment) VALUES ('".$proid."','".$nick."','".$score."','".$comment."')";
   $result = mysqli_query($conn, $sql);
-  $replaceURL = './1koreanview?id=' . $proid;
+  $replaceURL = './4euview?id=' . $proid;
 
   $sql = "INSERT INTO euestimate (level, mood, qual, quan, reportlv, testlv, scorelv, book, insung, proid)
   VALUES ('".$level."','".$mood."','".$qual."','".$quan."','".$reportlv."','".$testlv."','".$scorelv."','".$book."','".$insung."','".$proid."')";

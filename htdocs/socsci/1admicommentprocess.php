@@ -21,7 +21,7 @@
 
   $sql = "INSERT INTO admicomment (proid, nick, score, comment) VALUES ('".$proid."','".$nick."','".$score."','".$comment."')";
   $result = mysqli_query($conn, $sql);
-  $replacadmiRL = './1koreanview?id=' . $proid;
+  $replacadmiRL = './1admiview?id=' . $proid;
 
   $sql = "INSERT INTO admiestimate (level, mood, qual, quan, reportlv, testlv, scorelv, book, insung, proid)
   VALUES ('".$level."','".$mood."','".$qual."','".$quan."','".$reportlv."','".$testlv."','".$scorelv."','".$book."','".$insung."','".$proid."')";

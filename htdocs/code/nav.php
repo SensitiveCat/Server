@@ -27,6 +27,7 @@
         <li><a href="/8main">바나노</a></li>
         <li><a href="/9main">예술대학</a></li>
         <li><a href="/10main">리버럴아츠</a></li>
+        <li><a id="medical" href="/11main">메디컬캠퍼스</a></li>
      </ul>
      <a id="pull" href="#">Menu</a>
  </nav>
